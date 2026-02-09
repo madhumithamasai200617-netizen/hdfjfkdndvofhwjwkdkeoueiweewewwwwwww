@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Please Forgive Me ❤️</title>
+  <meta charset="UTF-8">
+  <title>Forgive Me ❤️</title>
   <style>
     body {
-      margin: 0;
       height: 100vh;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+      margin: 0;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
     }
 
-    .card {
+    .box {
       background: white;
       padding: 40px;
       border-radius: 20px;
-      width: 420px;
       text-align: center;
+      width: 400px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.15);
       position: relative;
     }
@@ -30,18 +30,16 @@
 
     p {
       color: #444;
-      font-size: 16px;
-      line-height: 1.6;
     }
 
     .buttons {
-      margin-top: 25px;
+      margin-top: 30px;
+      height: 120px;
       position: relative;
-      height: 80px;
     }
 
     button {
-      padding: 12px 22px;
+      padding: 12px 25px;
       border: none;
       border-radius: 25px;
       font-size: 16px;
@@ -49,22 +47,16 @@
       position: absolute;
     }
 
-    #yesBtn {
+    #yes {
       background: #ff4d6d;
       color: white;
-      left: 50%;
-      transform: translateX(-110%);
+      left: 90px;
     }
 
-    #noBtn {
-      background: #ccc;
+    #no {
+      background: #ddd;
       color: #333;
-      left: 50%;
-      transform: translateX(20%);
-    }
-
-    #yesBtn:hover {
-      background: #e63950;
+      left: 210px;
     }
 
     .hidden {
@@ -72,53 +64,52 @@
     }
 
     .heart {
-      font-size: 45px;
-      animation: beat 1s infinite;
+      font-size: 40px;
       margin-top: 15px;
+      animation: beat 1s infinite;
     }
 
     @keyframes beat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.25); }
+      50% { transform: scale(1.3); }
     }
   </style>
 </head>
 <body>
 
-  <div class="card">
-    <h1>I’m Sorry ❤️</h1>
+  <div class="box">
+    <h1>I’m Sorry 🥺</h1>
     <p>
-      I know I messed up, and I hate knowing I hurt you.<br><br>
-      You mean the world to me, and I promise I’ll do better.
-      Will you forgive me? 🥺
+      I know I hurt you, and I really regret it.<br>
+      Will you forgive me?
     </p>
 
     <div class="buttons">
-      <button id="yesBtn" onclick="forgiven()">Yes 💕</button>
-      <button id="noBtn">No 😐</button>
+      <button id="yes" onclick="forgive()">Yes 💕</button>
+      <button id="no">No 😐</button>
     </div>
 
-    <div id="message" class="hidden">
+    <div id="msg" class="hidden">
       <p>
-        Yay 🥹 thank you for forgiving me.<br>
-        I love you so much and I won’t take you for granted.
+        Thank you for forgiving me 🥹  
+        I promise to do better and love you more every day.
       </p>
       <div class="heart">❤️</div>
     </div>
   </div>
 
   <script>
-    const noBtn = document.getElementById("noBtn");
+    const noBtn = document.getElementById("no");
 
-    noBtn.addEventListener("mouseenter", () => {
-      const x = Math.random() * 300 - 150;
-      const y = Math.random() * 60 - 30;
-      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * 250;
+      const y = Math.random() * 80;
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
     });
 
-    function forgiven() {
+    function forgive() {
       document.querySelector(".buttons").style.display = "none";
-      document.getElementById("message").classList.remove("hidden");
+      document.getElementById("msg").classList.remove("hidden");
     }
   </script>
 
