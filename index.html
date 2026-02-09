@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>I’m Sorry ❤️</title>
+  <title>Please Forgive Me ❤️</title>
   <style>
     body {
       margin: 0;
@@ -18,14 +18,14 @@
       background: white;
       padding: 40px;
       border-radius: 20px;
-      max-width: 400px;
+      width: 420px;
       text-align: center;
       box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      position: relative;
     }
 
     h1 {
       color: #ff4d6d;
-      margin-bottom: 10px;
     }
 
     p {
@@ -34,21 +34,37 @@
       line-height: 1.6;
     }
 
-    button {
-      margin-top: 20px;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 25px;
-      background: #ff4d6d;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-      transition: transform 0.2s, background 0.2s;
+    .buttons {
+      margin-top: 25px;
+      position: relative;
+      height: 80px;
     }
 
-    button:hover {
+    button {
+      padding: 12px 22px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      position: absolute;
+    }
+
+    #yesBtn {
+      background: #ff4d6d;
+      color: white;
+      left: 50%;
+      transform: translateX(-110%);
+    }
+
+    #noBtn {
+      background: #ccc;
+      color: #333;
+      left: 50%;
+      transform: translateX(20%);
+    }
+
+    #yesBtn:hover {
       background: #e63950;
-      transform: scale(1.05);
     }
 
     .hidden {
@@ -56,14 +72,14 @@
     }
 
     .heart {
-      font-size: 40px;
-      margin-top: 20px;
+      font-size: 45px;
       animation: beat 1s infinite;
+      margin-top: 15px;
     }
 
     @keyframes beat {
       0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.2); }
+      50% { transform: scale(1.25); }
     }
   </style>
 </head>
@@ -72,27 +88,37 @@
   <div class="card">
     <h1>I’m Sorry ❤️</h1>
     <p>
-      Hey my love,<br><br>
-      I know I hurt you, and I truly regret it.
-      You mean so much to me, and I never want to be
-      the reason you feel sad or unloved.
+      I know I messed up, and I hate knowing I hurt you.<br><br>
+      You mean the world to me, and I promise I’ll do better.
+      Will you forgive me? 🥺
     </p>
 
-    <button onclick="showMessage()">Click if you forgive me 🥺</button>
+    <div class="buttons">
+      <button id="yesBtn" onclick="forgiven()">Yes 💕</button>
+      <button id="noBtn">No 😐</button>
+    </div>
 
-    <div id="forgiveMessage" class="hidden">
+    <div id="message" class="hidden">
       <p>
-        Thank you for giving me another chance.
-        I promise to do better, listen more,
-        and love you harder every day.
+        Yay 🥹 thank you for forgiving me.<br>
+        I love you so much and I won’t take you for granted.
       </p>
       <div class="heart">❤️</div>
     </div>
   </div>
 
   <script>
-    function showMessage() {
-      document.getElementById("forgiveMessage").classList.remove("hidden");
+    const noBtn = document.getElementById("noBtn");
+
+    noBtn.addEventListener("mouseenter", () => {
+      const x = Math.random() * 300 - 150;
+      const y = Math.random() * 60 - 30;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    function forgiven() {
+      document.querySelector(".buttons").style.display = "none";
+      document.getElementById("message").classList.remove("hidden");
     }
   </script>
 
